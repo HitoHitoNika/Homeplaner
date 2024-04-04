@@ -24,5 +24,4 @@ public class User {
      * The birthday of the user.
      */
     private LocalDateTime birthday;
-    // Other attributes and methods
 }

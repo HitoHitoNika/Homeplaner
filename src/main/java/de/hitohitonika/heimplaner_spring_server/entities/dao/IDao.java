@@ -10,7 +10,6 @@ import java.util.List;
  *
  * @param <T> The type of objects handled by this DAO
  */
-@Repository
 public interface IDao<T> {
 
     /**

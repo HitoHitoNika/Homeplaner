@@ -19,7 +19,7 @@ public class HouseholdDao implements IDao<Household> {
     }
 
     @Override
-    public Household getById(int id) {
+    public Household getById(long id) {
         return em.find(Household.class, id);
     }
 
@@ -41,7 +41,7 @@ public class HouseholdDao implements IDao<Household> {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         em.remove(em.find(Household.class, id));
     }
 

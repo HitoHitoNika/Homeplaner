@@ -19,7 +19,7 @@ public class EventDao implements IDao<Event> {
     }
 
     @Override
-    public Event getById(int id) {
+    public Event getById(long id) {
         return em.find(Event.class, id);
     }
 
@@ -41,7 +41,7 @@ public class EventDao implements IDao<Event> {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         em.remove(em.find(Event.class, id));
     }
 

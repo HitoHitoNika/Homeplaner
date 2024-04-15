@@ -1,7 +1,5 @@
 package de.hitohitonika.heimplaner_spring_server.entities.dao;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -40,6 +38,13 @@ public interface IDao<T> {
      * @param t The object to delete
      */
     void delete(T t);
+
+    /**
+     * Deletes a record from the database by its ID.
+     *
+     * @param id The ID of the record to be deleted
+     */
+    void deleteById(int id);
 
     /**
      * Updates an object of type T in the database.

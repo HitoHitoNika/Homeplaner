@@ -19,7 +19,7 @@ public class UserDao implements IDao<User> {
     }
 
     @Override
-    public User getById(int id) {
+    public User getById(long id) {
         return em.find(User.class, id);
     }
 
@@ -41,7 +41,7 @@ public class UserDao implements IDao<User> {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         em.remove(em.find(User.class, id));
     }
 

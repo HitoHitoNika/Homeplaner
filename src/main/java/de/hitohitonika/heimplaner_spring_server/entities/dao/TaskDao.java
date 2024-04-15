@@ -19,7 +19,7 @@ public class TaskDao implements IDao<Task> {
     }
 
     @Override
-    public Task getById(int id) {
+    public Task getById(long id) {
         return em.find(Task.class, id);
     }
 
@@ -41,7 +41,7 @@ public class TaskDao implements IDao<Task> {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         em.remove(em.find(Task.class, id));
     }
 

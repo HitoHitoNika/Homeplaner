@@ -16,7 +16,7 @@ public interface IDao<T> {
      * @param id The ID of the object to retrieve
      * @return The object with the specified ID, or null if not found
      */
-    T getById(int id);
+    T getById(long id);
 
     /**
      * Retrieves all objects of type T from the database.
@@ -44,7 +44,7 @@ public interface IDao<T> {
      *
      * @param id The ID of the record to be deleted
      */
-    void deleteById(int id);
+    void deleteById(long id);
 
     /**
      * Updates an object of type T in the database.

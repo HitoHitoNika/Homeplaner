@@ -2,19 +2,17 @@ package de.hitohitonika.heimplaner_spring_server.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents an event, such as a birthday or any other general occurrence, in the given household.
  */
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name="Event")
 public class Event {
@@ -43,4 +41,22 @@ public class Event {
      */
     @Column(name = "End",nullable = false)
     private LocalDateTime endDate;
+
+    /**
+     * The ID of the owning Household, if null this is not an Household Task
+     */
+    @Column(name = "Household", nullable = true)
+    private int household;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_event",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> participants = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
 }

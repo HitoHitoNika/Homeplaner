@@ -1,6 +1,7 @@
 package de.hitohitonika.heimplaner_spring_server.entities.dao;
 
 import de.hitohitonika.heimplaner_spring_server.entities.Event;
+import de.hitohitonika.heimplaner_spring_server.entities.User;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,12 @@ public class EventDao implements IDao<Event> {
         return em.createQuery("from Event", Event.class).getResultList();
     }
 
+    public List<Event> getEventsForUser(User user) {
+        return em.createQuery("SELECT e FROM Event e JOIN e.participants p WHERE p = :user", Event.class)
+                .setParameter("user", user)
+                .getResultList();
+    }
+
     @Override
     @Transactional
     public void save(Event event) {
@@ -50,4 +57,5 @@ public class EventDao implements IDao<Event> {
     public void update(Event event) {
         em.merge(event);
     }
+
 }
